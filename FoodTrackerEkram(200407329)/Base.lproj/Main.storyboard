@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,12 +13,12 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FoodTrackerEkram_200407329_" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0Uz-xM-FRY">
-                                <rect key="frame" x="0.0" y="40" width="320" height="134.5"/>
+                                <rect key="frame" x="16" y="40" width="343" height="462.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5d-51-gB7">
                                         <rect key="frame" x="0.0" y="0.0" width="86.5" height="20.5"/>
@@ -42,26 +42,46 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HR-MI-2Cm">
                                         <rect key="frame" x="0.0" y="104.5" width="30" height="30"/>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Ugm-h0-bhF">
+                                        <rect key="frame" x="0.0" y="142.5" width="320" height="320"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Ugm-h0-bhF" secondAttribute="height" multiplier="1:1" id="FsY-PB-yjp"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="UA9-61-0Vf" appends="YES" id="xKd-Mf-6b2"/>
+                                            <outletCollection property="gestureRecognizers" destination="cml-vk-7nP" appends="YES" id="u9d-9l-XIZ"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Uz-xM-FRY" secondAttribute="trailing" id="18x-pi-WzZ"/>
-                            <constraint firstItem="0Uz-xM-FRY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="5K9-rt-cb6"/>
-                            <constraint firstItem="0Uz-xM-FRY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pm3-FF-Wqw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Uz-xM-FRY" secondAttribute="bottom" constant="546" id="rgh-1w-tdX"/>
+                            <constraint firstItem="0Uz-xM-FRY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="T01-uj-Ogp"/>
+                            <constraint firstItem="0Uz-xM-FRY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="io9-F6-CCH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Uz-xM-FRY" secondAttribute="trailing" constant="16" id="zej-Mb-cvf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="mealNameLabel" destination="h5d-51-gB7" id="GVP-pY-gIy"/>
                         <outlet property="nameTextField" destination="V0k-GO-auN" id="SJL-dA-Gyt"/>
+                        <outlet property="photoImageView" destination="Ugm-h0-bhF" id="Mew-g2-p4N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="cml-vk-7nP">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="Kn6-sh-Rr7"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="UA9-61-0Vf"/>
             </objects>
             <point key="canvasLocation" x="132" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="320" height="320"/>
+    </resources>
 </document>
